@@ -1,6 +1,18 @@
 #include"task.h"
 
-int task_cmp(const void *pa, const void *pb){
+int task_cmp_FIFO(const void *pa, const void *pb){
+	struct Task *a = (struct Task*)pa;
+	struct Task *b = (struct Task*)pb;
+	if(a->ready_time < b->ready_time)
+		return -1;
+	else if(a->ready_time > b->ready_time)
+		return 1;
+	if( a->id < b->id)
+		return -1;
+	else 
+		return 1;
+}
+int task_cmp_SJF(const void *pa, const void *pb){
 	struct Task *a = (struct Task*)pa;
 	struct Task *b = (struct Task*)pb;
 	if(a->ready_time < b->ready_time)
@@ -33,10 +45,5 @@ void print_task(struct Task task){
 	printf("name = %s\n", task.name);
 	printf("ready time = %d\n", task.ready_time);
 	printf("executing time = %d\n", task.exec_time);
-	if(task.isInQueue){
-		printf("It is in the queue, and its pid is %d\n", task.pid);
-	}
-	else
-		printf("It is not in the queue.\n");
 	return;
 }
