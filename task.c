@@ -42,8 +42,8 @@ void swap_task(struct Task exec_arr[], int id1, int id2){
 }
 
 void print_task(struct Task task){
-	printf("name = %s\n", task.name);
-	printf("ready time = %d\n", task.ready_time);
-	printf("executing time = %d\n", task.exec_time);
+	fprintf(stderr, "name = %s\n", task.name);
+	fprintf(stderr, "ready time = %d\n", task.ready_time);
+	fprintf(stderr, "executing time = %d\n", task.exec_time);
 	return;
 }
