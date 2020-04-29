@@ -36,4 +36,5 @@ Kernel:linux-4.14.25
 3. 不過因為這裡是跑空迴圈，但如果涉及到storage的操作，一個操作所需要使用的時間會大幅上升，因此若用幾個操作來看可能不太好，所以可能真的在做的時候可以用clock的值。
 4. 我只有使用一顆CPU，因此main process在跑的時候可能會拖延到執行的時間，但因為操作數目不多，因此影響應該不大。main process會影響到只有在中途有新的task進來，或者是需要Preempt的時候，才會從child process退到main process。
 5. 如果沒有涉及到其他process的情形，誤差的來源來自於非迴圈的操作，如if-else判斷是否該結束or換人等等
- 
+ ## 備註
+- output資料夾底下的"xxx_finish"紀錄執行該測資時，每個process開始(首次進入CPU)及結束的時間。
