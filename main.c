@@ -110,7 +110,7 @@ int main(){
 				// child:
 				
 				long start_time = syscall(335);
-				fprintf(stderr, "Starts %s:%d at %u\n", tasks[current_task].name, tasks[current_task].pid, *clock);
+				fprintf(stderr, "Starts: %s, pid=%d, time=%u\n", tasks[current_task].name, tasks[current_task].pid, *clock);
 				printf("%s %d\n", tasks[current_task].name,  tasks[current_task].pid);
 				for(int round = 0; tasks[current_task].exec_time > 0; round++, tasks[current_task].exec_time --){
 					*current_process = current_task;
@@ -134,7 +134,7 @@ int main(){
 				long end_time = syscall(335);
 				syscall(334, tasks[current_task].pid, start_time, end_time);
 			 
-				fprintf(stderr, "%s is done at %d\n", tasks[current_task].name, *clock);
+				fprintf(stderr, "Done: %s, pid=%d, time=%u\n", tasks[current_task].name, tasks[current_task].pid,*clock);
 				// Queue pop
 				DeQueue(q);
 				//print_Queue(q);

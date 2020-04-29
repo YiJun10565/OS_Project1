@@ -1,0 +1,4 @@
+Starts: P1, pid=6046, time=600
+Starts: P2, pid=6047, time=1100
+Done: P1, pid=6046, time=8100
+Done: P2, pid=6047, time=9600
